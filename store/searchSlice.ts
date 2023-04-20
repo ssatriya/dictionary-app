@@ -80,6 +80,7 @@ const searchSlice = createSlice({
         state.status = "succeeded";
         state.searchResult.pop();
         state.searchResult.push(action.payload);
+        state.error = undefined;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.status = "error";

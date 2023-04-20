@@ -6,9 +6,11 @@ import Word from "./Word";
 import Noun from "./Noun";
 import Verb from "./Verb";
 import Source from "./Source";
+import Error from "./Error";
 
 const Content = () => {
   const result = useSelector((state: RootState) => state.search.searchResult);
+  const error = useSelector((state: RootState) => state.search.error);
 
   const data = result.flatMap((el) => el);
 
@@ -18,6 +20,12 @@ const Content = () => {
 
   if (data.length === 0) {
     return null;
+  }
+
+  console.log(error);
+
+  if (error) {
+    return <Error errorMessage={error} />;
   }
 
   return (

@@ -13,7 +13,7 @@ const Source = (props: { source: string[] }) => {
       <div className="w-full mt-10">
         <Separator aria-orientation="horizontal" className="bg-off-white-2" />
       </div>
-      <div className="flex items-center gap-5 mt-[19px] mb-[124px]">
+      <div className="flex flex-wrap items-center gap-5 mt-[19px] mb-[124px]">
         <p className="text-light-gray text-sm">Source</p>{" "}
         {props.source.slice(0, 4).map((s, i) => (
           <Link

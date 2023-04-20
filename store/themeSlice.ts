@@ -6,7 +6,7 @@ interface State {
 }
 
 const initialState: State = {
-  font: "inter",
+  font: "Mono",
   darkMode: false,
 };
 
@@ -16,6 +16,7 @@ const themeSlice = createSlice({
   reducers: {
     setFont(state, action) {
       state.font = action.payload;
+      localStorage.setItem("font", JSON.stringify(state.font));
     },
     setDarkMode(state) {
       state.darkMode = !state.darkMode;

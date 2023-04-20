@@ -23,14 +23,17 @@ import { RootState } from "../../store/store";
 import { setFont, setDarkMode } from "../../store/themeSlice";
 
 const Navbar = () => {
-  const darkThemeRef = useRef();
-  const [dark, setDark] = useState<boolean>(false);
-
   const dispatch = useDispatch();
-  // const darkMode = useSelector((state: RootState) => state.theme.darkMode);
   const selectedFont = useSelector((state: RootState) => state.theme.font);
 
-  const { systemTheme, theme, setTheme } = useTheme();
+  useEffect(() => {
+    const storedFont = localStorage.getItem("font") || "";
+
+    if (storedFont) {
+      const parsed = JSON.parse(storedFont);
+      dispatch(setFont(parsed));
+    }
+  }, []);
 
   return (
     <header>
@@ -110,12 +113,7 @@ const Navbar = () => {
           </li>
           <li>
             <div className="flex items-center gap-5">
-              <Switch
-                onCheckedChange={() =>
-                  theme === "light" ? setTheme("dark") : setTheme("light")
-                }
-                id="dark-theme"
-              />
+              <Switch onCheckedChange={() => {}} id="dark-theme" />
               <label className="sr-only" htmlFor="dark-theme">
                 Dark theme toggle
               </label>
@@ -127,7 +125,7 @@ const Navbar = () => {
               >
                 <path
                   fill="none"
-                  stroke={`${theme === "dark" ? "#A445ED" : "#838383"}`}
+                  stroke={`#838383`}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1.5"

@@ -39,9 +39,9 @@ const Noun = (props: { noun: Props }) => {
           ))}
         </ul>
       </div>
-      <div className="mt-10 flex items-center gap-[22px]">
+      <div className="mt-10 flex flex-wrap items-center gap-[22px]">
         <div className="font-normal text-xl text-light-gray">Synonyms</div>
-        {props.noun.synonyms.slice(0, 4).map((synonym, i) => (
+        {props.noun.synonyms.map((synonym, i) => (
           <Button
             type="button"
             variant="link"

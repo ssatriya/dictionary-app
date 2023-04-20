@@ -2,14 +2,16 @@ import React, { useRef } from "react";
 
 import { Button } from "./ui/button";
 
-const Word = (props: { word: string; phonetic: string; phonetics: string }) => {
+const Word = (props: {
+  word: string;
+  phonetic: string;
+  phonetics?: string;
+}) => {
   const audio = document.getElementById("track") as HTMLAudioElement;
 
   const playTrack = async () => {
     audio.play();
   };
-
-  // console.log(props.phonetics);
 
   return (
     <div className="h-[114px] flex justify-between items-center mt-[45px]">
