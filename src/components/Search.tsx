@@ -16,8 +16,6 @@ const Search = () => {
   const submitHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    console.log(searchTerm);
-
     if (searchTerm !== "") {
       dispatch(fetchData(searchTerm));
     }

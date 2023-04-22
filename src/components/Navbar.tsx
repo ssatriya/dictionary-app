@@ -23,15 +23,31 @@ import { RootState } from "../../store/store";
 import { setFont, setDarkMode } from "../../store/themeSlice";
 
 const Navbar = () => {
+  const [checkedValue, setCheckedValue] = useState<boolean>(false);
   const dispatch = useDispatch();
   const selectedFont = useSelector((state: RootState) => state.theme.font);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const storedFont = localStorage.getItem("font") || "";
 
     if (storedFont) {
-      const parsed = JSON.parse(storedFont);
-      dispatch(setFont(parsed));
+      const parsedFont = JSON.parse(storedFont);
+      dispatch(setFont(parsedFont));
+    }
+
+    const storedDarkThemeState = localStorage.getItem("darkMode") || "";
+
+    if (storedDarkThemeState) {
+      const parsedDarkMode = JSON.parse(storedDarkThemeState);
+
+      if (parsedDarkMode === "on") {
+        dispatch(setDarkMode("on"));
+        setCheckedValue(true);
+        setTheme("dark");
+      }
+
+      return;
     }
   }, []);
 
@@ -113,7 +129,21 @@ const Navbar = () => {
           </li>
           <li>
             <div className="flex items-center gap-5">
-              <Switch onCheckedChange={() => {}} id="dark-theme" />
+              <Switch
+                onCheckedChange={(e) => {
+                  if (e) {
+                    dispatch(setDarkMode("on"));
+                    setCheckedValue(true);
+                    setTheme("dark");
+                  } else {
+                    dispatch(setDarkMode("off"));
+                    setCheckedValue(false);
+                    setTheme("light");
+                  }
+                }}
+                id="dark-theme"
+                checked={checkedValue}
+              />
               <label className="sr-only" htmlFor="dark-theme">
                 Dark theme toggle
               </label>
@@ -125,7 +155,7 @@ const Navbar = () => {
               >
                 <path
                   fill="none"
-                  stroke={`#838383`}
+                  stroke={`${checkedValue ? "#A445ED" : "#838383"}`}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1.5"

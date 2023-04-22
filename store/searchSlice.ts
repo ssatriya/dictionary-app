@@ -74,7 +74,7 @@ const searchSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchData.pending, (state) => {
-        state.status = "Loading";
+        state.status = "loading";
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.status = "succeeded";

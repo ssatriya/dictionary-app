@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "../../store/store";
@@ -7,10 +7,13 @@ import Noun from "./Noun";
 import Verb from "./Verb";
 import Source from "./Source";
 import Error from "./Error";
+import Loading from "./Loading";
 
 const Content = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const result = useSelector((state: RootState) => state.search.searchResult);
   const error = useSelector((state: RootState) => state.search.error);
+  const status = useSelector((state: RootState) => state.search.status);
 
   const data = result.flatMap((el) => el);
 
@@ -18,14 +21,30 @@ const Content = () => {
   const verbData = data[0]?.meanings.find((obj) => obj.partOfSpeech === "verb");
   const audio = data[0]?.phonetics.find((obj) => obj.audio !== "");
 
-  if (data.length === 0) {
-    return null;
-  }
+  useEffect(() => {
+    if (status === "loading") {
+      setIsLoading(true);
+    }
 
-  console.log(error);
+    if (status === "idle") {
+      setIsLoading(false);
+    }
+
+    if (status === "succeeded") {
+      setIsLoading(false);
+    }
+  }, [status]);
 
   if (error) {
     return <Error errorMessage={error} />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (data.length === 0) {
+    return null;
   }
 
   return (

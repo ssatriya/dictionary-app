@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface State {
   font: string;
-  darkMode: boolean;
+  darkMode: string;
 }
 
 const initialState: State = {
   font: "Mono",
-  darkMode: false,
+  darkMode: "off",
 };
 
 const themeSlice = createSlice({
@@ -18,8 +18,10 @@ const themeSlice = createSlice({
       state.font = action.payload;
       localStorage.setItem("font", JSON.stringify(state.font));
     },
-    setDarkMode(state) {
-      state.darkMode = !state.darkMode;
+    setDarkMode(state, action) {
+      state.darkMode = action.payload;
+
+      localStorage.setItem("darkMode", JSON.stringify(state.darkMode));
     },
   },
 });
