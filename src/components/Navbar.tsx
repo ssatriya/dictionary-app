@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -26,7 +26,7 @@ const Navbar = () => {
   const [checkedValue, setCheckedValue] = useState<boolean>(false);
   const dispatch = useDispatch();
   const selectedFont = useSelector((state: RootState) => state.theme.font);
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     const storedFont = localStorage.getItem("font") || "";
@@ -54,7 +54,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className="flex justify-between items-center mt-[53px] h-[38px] smartphone:mt-6">
-        <a href="/">
+        <Link href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -73,7 +73,7 @@ const Navbar = () => {
               <path d="M11 9h12" />
             </g>
           </svg>
-        </a>
+        </Link>
         <ul className="flex items-center justify-between gap-[26px] h-full">
           <li>
             <DropdownMenu>
