@@ -16,12 +16,14 @@ const Word = (props: {
     }
   };
   return (
-    <div className="h-[114px] flex justify-between items-center mt-[45px]">
+    <div className="flex justify-between items-center desktop:mt-[45px] md:mt-[45px] smartphone:mt-6">
       <div>
-        <div className="text-[64px] font-bold leading-[77.45px] text-soft-black dark:text-white">
+        <div className="tablet:text-[64px] smartphone:text-[32px] font-bold text-soft-black dark:text-white">
           {props.word}
         </div>
-        <div className="text-2xl text-primary-purple">{props.phonetic}</div>
+        <div className="tablet:text-2xl smartphone:text-lg mt-2 text-primary-purple">
+          {props.phonetic}
+        </div>
       </div>
 
       <audio id="track" ref={audioRef} src={props.phonetics}></audio>
@@ -30,7 +32,7 @@ const Word = (props: {
         <Button
           type="button"
           variant="default"
-          className="h-[75px] w-[75px] bg-green-500 p-0 rounded-full bg-transparent hover:bg-transparent dark:bg-transparent"
+          className="desktop:h-[75px] desktop:w-[75px] tablet:h-[75px] tablet:w-[75px] smartphone:h-[48px] smartphone:w-[48px] bg-green-500 p-0 rounded-full bg-transparent hover:bg-transparent dark:bg-transparent"
           onClick={playAudio}
         >
           <svg

@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex justify-between items-center mt-[53px] h-[38px]">
+      <nav className="flex justify-between items-center mt-[53px] h-[38px] smartphone:mt-6">
         <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   size="default"
-                  className="px-0 mx-0 font-bold text-[18px]"
+                  className="px-0 mx-0 font-bold text-[18px] smartphone:text-sm"
                 >
                   {selectedFont}
                   <svg
@@ -105,19 +105,19 @@ const Navbar = () => {
               >
                 <DropdownMenuItem
                   onClick={() => dispatch(setFont("Sans Serif"))}
-                  className={`group text-[18px] font-bold  leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${inter.className}`}
+                  className={`group text-[18px] smartphone:text-sm smartphone:leading-4 font-bold  leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${inter.className}`}
                 >
                   Sans Serif
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => dispatch(setFont("Serif"))}
-                  className={`group text-[18px] font-bold leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${lora.className}`}
+                  className={`group text-[18px] smartphone:text-sm smartphone:leading-4 font-bold leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${lora.className}`}
                 >
                   Serif
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => dispatch(setFont("Mono"))}
-                  className={`group text-[18px] font-bold  leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${inconsolata.className}`}
+                  className={`group text-[18px] smartphone:text-sm smartphone:leading-4 font-bold  leading-none rounded-md data-[highlighted]:text-[#A445ED] data-[highlighted]:outline-none data-[highlighted]:cursor-pointer ${inconsolata.className}`}
                 >
                   Mono
                 </DropdownMenuItem>

@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Head from "next/head";
 
 import { Inter } from "next/font/google";
 import { Lora } from "next/font/google";
@@ -15,7 +16,6 @@ import Search from "@/components/Search";
 import Content from "@/components/Content";
 
 export default function Home() {
-  const dispatch = useDispatch();
   const font = useSelector((state: RootState) => state.theme.font);
 
   let currentFont = inter.className;
@@ -34,6 +34,11 @@ export default function Home() {
 
   return (
     <div className={currentFont}>
+      <Head>
+        <title>Directory App</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Navbar />
       <Search />
       <Content />
