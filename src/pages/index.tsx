@@ -33,7 +33,7 @@ export default function Home() {
   }
 
   return (
-    <div className={currentFont}>
+    <main className={currentFont}>
       <Head>
         <title>Directory App</title>
         <meta charSet="utf-8" />
@@ -42,6 +42,6 @@ export default function Home() {
       <Navbar />
       <Search />
       <Content />
-    </div>
+    </main>
   );
 }
