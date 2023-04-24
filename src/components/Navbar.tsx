@@ -81,7 +81,7 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   size="default"
-                  className="px-0 mx-0 font-bold text-[18px] smartphone:text-sm"
+                  className="px-0 mx-0 font-bold desktop:text-[18px] tablet:text-[18px] smartphone:text-sm"
                 >
                   {selectedFont}
                   <svg
