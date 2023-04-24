@@ -18,7 +18,7 @@ const Word = (props: {
   return (
     <div className="flex justify-between items-center desktop:mt-[45px] md:mt-[45px] smartphone:mt-6">
       <div>
-        <div className="tablet:text-[64px] smartphone:text-[32px] font-bold text-soft-black dark:text-white">
+        <div className="tablet:text-[64px] smartphone:text-[32px] font-bold text-soft-black dark:text-white desktop:leading-[77.45 px]">
           {props.word}
         </div>
         <div className="tablet:text-2xl smartphone:text-lg mt-2 text-primary-purple">
