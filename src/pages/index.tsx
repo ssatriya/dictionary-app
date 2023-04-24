@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main className={currentFont}>
       <Head>
-        <title>Directory App</title>
+        <title>Dictionary App</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
