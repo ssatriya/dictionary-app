@@ -22,9 +22,12 @@ import { Separator } from "./ui/separator";
 import { RootState } from "../../store/store";
 import { setFont, setDarkMode } from "../../store/themeSlice";
 
+import { fetchData, setSearchTerm } from "../../store/searchSlice";
+import { AppDispatch } from "../../store/store";
+
 const Navbar = () => {
   const [checkedValue, setCheckedValue] = useState<boolean>(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const selectedFont = useSelector((state: RootState) => state.theme.font);
   const { setTheme } = useTheme();
 
@@ -51,10 +54,15 @@ const Navbar = () => {
     }
   }, [dispatch, setTheme]);
 
+  const resetState = () => {
+    dispatch(fetchData("computer"));
+    dispatch(setSearchTerm("computer"));
+  };
+
   return (
     <header>
       <nav className="flex justify-between items-center h-[38px] desktop:mt-[58px] tablet:mt-[58px] smartphone:mt-6">
-        <Link href="/">
+        <Link href="/" onClick={resetState}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -124,7 +132,7 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
-          <li className="h-[32px] bg-light-gray">
+          <li className="h-[32px] bg-off-white-2">
             <Separator orientation="vertical" />
           </li>
           <li>

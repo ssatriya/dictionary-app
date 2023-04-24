@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Error = (props: { errorMessage: any }) => {
-  console.log(props.errorMessage.title);
   return (
     <div className="mt-[132px] w-full flex flex-col justify-center items-center">
       <Image src={emoticon} height={64} width={63} alt="Emoticon" />

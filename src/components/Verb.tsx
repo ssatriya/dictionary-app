@@ -20,7 +20,7 @@ const Verb = (props: { verb: Props }) => {
         <p className="tablet:text-2xl smartphone:text-lg italic font-bold">
           {props.verb.partOfSpeech}
         </p>{" "}
-        <Separator aria-orientation="horizontal" className="bg-dark-gray-2" />
+        <Separator aria-orientation="horizontal" className="bg-off-white-2" />
       </div>
       <div>
         <div className="mt-10 font-normal tablet:text-xl smartphone:text-base text-light-gray">
