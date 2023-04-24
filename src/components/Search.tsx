@@ -36,6 +36,7 @@ const Search = () => {
           placeholder="Search for any word..."
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
+          id="search"
           className="desktop:h-16 md:h-16 smartphone:h-12 bg-off-white-1 dark:bg-soft-black dark:text-white dark:placeholder:text-white dark:placeholder:text-opacity-25 rounded-2xl border-transparent focus:border-primary-purple outline-none px-6 py-5 focus-visible:ring-transparent text-xl font-bold text-dark-gray-2 placeholder:text-dark-gray-2 placeholder:text-opacity-25"
         />
         <Button
