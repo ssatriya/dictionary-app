@@ -49,7 +49,7 @@ const Navbar = () => {
 
       return;
     }
-  }, []);
+  }, [dispatch, setTheme]);
 
   return (
     <header>
