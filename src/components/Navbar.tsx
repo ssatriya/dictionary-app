@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex justify-between items-center h-[38px] smartphone:mt-6">
+      <nav className="flex justify-between items-center h-[38px] desktop:mt-[58px] tablet:mt-[58px] smartphone:mt-6">
         <Link href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
