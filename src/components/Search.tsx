@@ -25,6 +25,11 @@ const Search = () => {
     setSearchTerm(currentSearch);
   }, [currentSearch]);
 
+  useEffect(() => {
+    dispatch(fetchData("keyboard"));
+    setSearchTerm("keyboard");
+  }, []);
+
   return (
     <form onSubmit={submitHandler}>
       <div className="mt-[51.5px] relative flex items-center">
