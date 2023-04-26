@@ -51,6 +51,9 @@ const Navbar = () => {
       }
 
       return;
+    } else {
+      dispatch(setDarkMode("off"));
+      setTheme("light");
     }
   }, [dispatch, setTheme]);
 
